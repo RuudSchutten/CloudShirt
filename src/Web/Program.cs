@@ -100,6 +100,8 @@ app.Logger.LogInformation("App created...");
 
 app.Logger.LogInformation("Seeding Database...");
 
+app.UseCors(options => options.SetIsOriginAllowed(_ => true).AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+
 using (var scope = app.Services.CreateScope())
 {
     var scopedProvider = scope.ServiceProvider;
